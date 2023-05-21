@@ -40,7 +40,7 @@ header {
     border-radius: 10px;
     width:30%;
     background: #4CAF50;
-    font-family: 'Roboto', Тahoma, sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     color:white;
     font-size: 110%;
 }
@@ -75,11 +75,12 @@ header {
 .link {
     display: flex;
     text-decoration: none;
-    font-family: fantasy;
+    font-family: 'IBM Plex Sans', sans-serif;
     color: white;
     font-size: 110%;
     white-space: nowrap;
-    margin: 1% 10% 1% 0;
+    margin: 1% 8% 1% 0;
+    font-weight: 700;
 }
 
 
@@ -133,6 +134,7 @@ header {
     flex-wrap: nowrap;
     margin: 7% 0 0 0;
     color:#FF0000;
+
 }
 .link2{
     display: flex;
@@ -189,7 +191,7 @@ header {
     font-size: 60%;
     color: #094480;
     font-weight: 700;
-    font-family: "Helvetica";
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 .data{display: flex;
     margin: 0 0 0 0;
@@ -369,4 +371,68 @@ rgba(0,0,0,0.15);
 #30445d}
 
 
+.questions{
+    display: flex;
+    margin: 150px 0 30% 0;
+    flex-direction: column;
 
+}
+.otvet2{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    color: #333333;
+    margin-bottom: 30px;
+    width: 65%;
+}
+.oglav{
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 28px;
+    color: #333333;
+    font-size: 100%;
+
+}
+
+.questions-all-property{display: flex;
+    margin: 10px 0 0 0;
+    background: #FFFFFF;
+    border: 0.5px solid #DDDDDD;
+    box-shadow: 0px 12px 40px rgb(45 75 162 / 12%), 0px 2px 12px rgb(45 75 162 / 4%);
+    border-radius: 30px;
+    flex-direction: column;
+}
+.innnder_select{background-color:#ff5757;color:#fff;font-size:16px;line-height:23px;font-weight:300;padding:5px 20px 10px 22px}
+.terms{display: flex;
+    margin: 125px 0 0 0;
+    background: #FFFFFF;
+    border: 0.5px solid #DDDDDD;
+    box-shadow: 0px 12px 40px rgb(45 75 162 / 12%), 0px 2px 12px rgb(45 75 162 / 4%);
+    border-radius: 30px;
+    flex-direction: column;
+
+}
+
+.themes{display: flex;
+    margin: 150px 0 0 0;
+    background: #FFFFFF;
+    border: 0.5px solid #DDDDDD;
+    box-shadow: 0px 12px 40px rgb(45 75 162 / 12%), 0px 2px 12px rgb(45 75 162 / 4%);
+    border-radius: 30px;
+    flex-direction: column;
+}
+
+
+.oglav2{
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 28px;
+    color: #333333;
+    font-size: 100%;
+    margin: 25px 20% 0 20%;
+}
+.error404{font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 40px;
+    color: #333333;
+    font-size: 150%;
+    margin: 150px 20% 0 20%;
+    text-align: center;
+}

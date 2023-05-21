@@ -1,4 +1,3 @@
-
 import datetime
 import os
 import sqlite3
@@ -12,6 +11,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.config.update(dict(DATABASE=os.path.join(app.root_path, 'fdb.db')))
 app.permanent_session_lifetime = datetime.timedelta(seconds=60)
+
 
 def connect_db():
     conn = sqlite3.connect(app.config['DATABASE'])
@@ -47,9 +47,7 @@ def add_questions():
             if res:
                 flash('Вопрос опубликован', category='success')
 
-
     return render_template('add_questions.html', title='Добавить статью', menu=database.getMenu())
-
 
 
 @app.route('/all_questions', methods=['POST', 'GET'])
@@ -57,9 +55,7 @@ def all_questions():  # put application's code here
     db = get_db()
     database = FDataBase(db)
     return render_template('all_questions.html', title='Cписок постов', menu=database.getMenu()
-                           ,posts=database.getPostAnnoce())
-
-
+                           , posts=database.getPostAnnoce())
 
 
 @app.route('/posts/<int:id_post>', methods=['POST', 'GET'])
@@ -85,9 +81,12 @@ def showPost(id_post):  # put application's code here
     if not title:
         abort(404)
     return render_template('aticle.html', title='title', menu=database.getMenu(), post=aticle, post1=answer
-                           ,otv=database.getAnswerAnnoce(id_post))
+                           , otv=database.getAnswerAnnoce(id_post))
 
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page404.html', title='Страница не найдена')
 
 
 @app.route('/')
@@ -95,6 +94,41 @@ def index():
     db = get_db()
     database = FDataBase(db)
     return render_template('main.html', title='1', menu=database.getMenu())
+
+
+@app.route('/questions')
+def questions():
+    db = get_db()
+    database = FDataBase(db)
+    return render_template('questions.html', menu=database.getMenu())
+
+
+@app.route('/keyboard_shortcut')
+def index1():
+    db = get_db()
+    database = FDataBase(db)
+    return render_template('keyboard_shortcut.html', menu=database.getMenu())
+
+
+@app.route('/dictionary_computer_terms')
+def index2():
+    db = get_db()
+    database = FDataBase(db)
+    return render_template('dictionary_computer_terms.html', menu=database.getMenu())
+
+
+@app.route('/themes')
+def index3():
+    db = get_db()
+    database = FDataBase(db)
+    return render_template('themes.html', menu=database.getMenu())
+
+
+@app.route('/windows')
+def index4():
+    db = get_db()
+    database = FDataBase(db)
+    return render_template('windows.html', menu=database.getMenu())
 
 
 if __name__ == '__main__':
