@@ -2,7 +2,11 @@ import math
 import sqlite3
 import time
 import locale
+from datetime import datetime
+from pytz import timezone
+
 locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
+
 
 def create_db():
     """Вспомогательная функция для создания таблиц БД """
@@ -77,25 +81,11 @@ class FDataBase:
             print("Ошибка получения статьи из БД" + str(e))
         return (False, False)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    def addAnswer(self,id, title, text):
+    def addAnswer(self, id, title, text):
         try:
-            tm = time.strftime("%d %B %Y %H:%M", time.localtime())
-            self.__cur.execute("INSERT INTO answer VALUES (?, ?, ?, ?)", (id,title, text, tm))
+            sa_time = datetime.now(timezone('Europe/Moscow'))
+            tm = sa_time.strftime('%d %B %Y %H:%M')
+            self.__cur.execute("INSERT INTO answer VALUES (?, ?, ?, ?)", (id, title, text, tm))
             self.__db.commit()
         except sqlite3.Error as e:
             print("Ошибка добавления поста в БД", str(e))
@@ -120,6 +110,7 @@ class FDataBase:
             print("Ошибка получения статьи из БД" + str(e))
         return (False, False)
 
+
 if __name__ == '__main__':
     from app import app, connect_db
 
@@ -139,9 +130,5 @@ if __name__ == '__main__':
     create_db()
     print(db.addMenu('Задать вопрос', 'add_questions'))
     print(db.addMenu('Вопросы пользователей', 'all_questions'))
-    #print(db.addAnswer('Задать вопрос', 'add_questions'))
-    #print(db.getMenu())
-
-
-
-
+    # print(db.addAnswer('Задать вопрос', 'add_questions'))
+    # print(db.getMenu())

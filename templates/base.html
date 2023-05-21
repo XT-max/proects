@@ -4,13 +4,14 @@
 <link rel="stylesheet" href="\static\css\style.css">
 <link type="image/png" sizes="128x128" rel="icon" href='/static/img/favicon.ico'>
 <title>Главная</title>
+
 <body>
 
 
-{% block content %}
-            {%- block mainmenu -%}
-<header>
-    <nav class="menu">
+    {% block content %}
+    {%- block mainmenu -%}
+    <header>
+        <nav class="menu">
             <nav class="nav">
                 <div class="dropdown">
                     <button class="dropbtn">Каталог</button>
@@ -24,7 +25,7 @@
             <ul class="menu1">
                 <a class="link" href="/"> Главная</a>
                 <a class="link" href="/questions"> Часто задаваемые вопросы</a>
-                {% for  m in menu -%}
+                {% for m in menu -%}
                 <a class="link" href="{{url_for(m.url)}}"> {{m.title}}</a>
 
 
@@ -39,11 +40,11 @@
 
 
 
-</header>
+    </header>
 
 
 
-{% endblock %}
+    {% endblock %}
 </body>
 
 </html>
