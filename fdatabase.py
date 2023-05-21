@@ -2,7 +2,7 @@ import math
 import sqlite3
 import time
 import locale
-locale.setlocale(locale.LC_ALL, 'Russian_Russia.1251')
+locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
 
 def create_db():
     """Вспомогательная функция для создания таблиц БД """
@@ -121,7 +121,7 @@ class FDataBase:
         return (False, False)
 
 if __name__ == '__main__':
-    from main import app, connect_db
+    from app import app, connect_db
 
     print(create_db.__doc__)
     db = connect_db()
